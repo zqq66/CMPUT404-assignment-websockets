@@ -1,8 +1,9 @@
-#!/bin/bash
-ps aux | fgrep 'python -m SimpleHTTPServer' | awk '{print $2}' | xargs kill
-python -m SimpleHTTPServer 8118 &
-ID=$!
-repo=$1
+file=$1
 two=$2
-docker run -u=me -p 127.0.0.1:8000:8000 -i -t cmput404ass5 /bin/bash /home/me/arb.sh  $repo $two 
-kill $ID
+#(sleep 3; killall firefox ) &
+#(sleep 4; killall firefox ) &
+(sleep 8; bash cacheless-browser.sh -new-window  http://127.0.0.1:5000/static/index.html  \
+ -new-window  http://127.0.0.1:5000/static/index.html  ) &
+#(sleep 10; firefox -new-window  http://127.0.0.1:5000/static/index.html  \
+# -new-window  http://127.0.0.1:5000/static/index.html  ) &
+docker run -P -p 127.0.0.1:5000:5000 -u=me -i -t cmput404 /bin/bash /home/me/arb.sh  `perl 2txt.pl "$file" | perl grepgh.pl` $two | tee $file.out
