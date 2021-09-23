@@ -1,3 +1,4 @@
+mkdir Docker
 cp Dockerfile arb.sh Docker
 cp requirements.txt Docker
 cd Docker

@@ -1,5 +1,4 @@
-FROM ubuntu:19.10
-RUN echo "No Cache2"
+FROM ubuntu:20.04
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y python3 python3-dev python3-setuptools python3-pip curl wget git vim locales
